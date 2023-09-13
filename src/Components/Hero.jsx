@@ -40,12 +40,7 @@ const Hero = () => {
       ),
     },
   ];
-  const [saerchFor, setSearchFor] = useState("Stays");
   const target = useTarget();
-
-  function handleChangeSearchFor(value) {
-    setSearchFor(value);
-  }
 
   return (
     <section className="container relative mb-[148px]">
@@ -81,8 +76,6 @@ const Hero = () => {
         />
       </div>
       <SearchBox
-        handleChangeSearchFor={handleChangeSearchFor}
-        saerchFor={saerchFor}
         tabs={tabOptions}
       />
     </section>

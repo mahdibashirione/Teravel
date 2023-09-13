@@ -2,7 +2,7 @@ import { useState } from "react";
 import { FiPlus } from "react-icons/fi";
 import { useTarget, useTargetActions } from "../context/TargetProvider";
 
-const SearchBox = ({ tabs, saerchFor, handleChangeSearchFor }) => {
+const SearchBox = ({ tabs, saerchFor }) => {
   const [saerchValue, setSearchValue] = useState("");
   const target = useTarget();
   const { handleChangeTarget } = useTargetActions();
