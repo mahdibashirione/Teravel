@@ -48,26 +48,18 @@ const Features = () => {
       <div className="container flex flex-col items-center md:items-stretch gap-4 md:flex-row">
         {featureData.map((feature) => {
           return (
-            <motion.div
-              ref={container}
-              variants={animateContaier}
-              animate={isInView ? "show" : "hidden"}
+            <div
+              key={feature.id}
               className="flex-1 flex flex-col justify-end items-center relative max-w-[350px] md:max-w-none rounded-[20px] overflow-hidden"
             >
               <div className="w-full h-full flex flex-col justify-end items-center absolute inset-0 z-10 pb-8 select-none">
-                <motion.h2
-                  variants={animateItems}
-                  className="text-white font-bold text-4xl lg:text-5xl xl:text-6xl"
-                >
+                <h2 className="text-white font-bold text-4xl lg:text-5xl xl:text-6xl">
                   {feature.title}
-                </motion.h2>
-                <motion.p
-                  variants={animateItems}
-                  className="text-white text-sm text-center mt-2 md:text-base max-w-[400px] xl:mt-4"
-                >
+                </h2>
+                <p className="text-white text-sm text-center mt-2 md:text-base max-w-[400px] xl:mt-4">
                   {feature.description}
-                </motion.p>
-                <motion.button variants={animateItems}>
+                </p>
+                <button>
                   <Link
                     className="text-sm bg-primary py-2 px-4 flex items-center gap-2 rounded md:text-base active:scale-95 duration-200 lg:text-lg mt-6 xl:mb-8 xl:mt-10"
                     to={feature.url}
@@ -85,7 +77,7 @@ const Features = () => {
                     </svg>{" "}
                     show {feature.title}
                   </Link>
-                </motion.button>
+                </button>
               </div>
               <span className="block w-full h-full absolute inset-0 bg-gradient-to-t from-zinc-950"></span>
               <img
@@ -94,7 +86,7 @@ const Features = () => {
                 alt=""
                 loading="lazy"
               />
-            </motion.div>
+            </div>
           );
         })}
       </div>

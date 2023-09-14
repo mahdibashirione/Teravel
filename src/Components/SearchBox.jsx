@@ -2,7 +2,7 @@ import { useState } from "react";
 import { FiPlus } from "react-icons/fi";
 import { useTarget, useTargetActions } from "../context/TargetProvider";
 
-const SearchBox = ({ tabs, saerchFor }) => {
+const SearchBox = ({ tabs }) => {
   const [saerchValue, setSearchValue] = useState("");
   const target = useTarget();
   const { handleChangeTarget } = useTargetActions();
@@ -160,7 +160,7 @@ const SearchBox = ({ tabs, saerchFor }) => {
               fill="black"
             />
           </svg>
-          Show {saerchFor}
+          Show {target}
         </button>
       </div>
     </article>
