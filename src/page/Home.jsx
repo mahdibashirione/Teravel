@@ -1,13 +1,13 @@
-import Features from "../Components/Features";
 import Hero from "../Components/Hero";
-import Reviews from "../Components/Reviews";
+import Option from "../Components/Option";
+import TeravelTours from "../Components/TeravelTours";
 
 const HomePage = () => {
   return (
     <>
       <Hero />
-      <Features />
-      <Reviews />
+      <TeravelTours />
+      <Option />
     </>
   );
 };

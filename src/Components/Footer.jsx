@@ -142,7 +142,7 @@ const Footer = () => {
   return (
     <footer className="px-4 bg-primary pb-16 lg:pb-20 mt-32 md:mt-40">
       <div className="container flex flex-wrap gap-4 pt-36 lg:pt-40 relative">
-        <div className="absolute -top-28 md:-top-36 left-1/2 -translate-x-1/2 rounded-xl bg-[#cdeae1] w-[90%] flex">
+        <div className="absolute -top-28 md:-top-36 left-1/2 -translate-x-1/2 max-w-[1300px] rounded-xl bg-[#cdeae1] w-[90%] flex">
           <div className="flex-1 p-4">
             <h3 className="font-semibold text-2xl md:text-3xl lg:text-4xl xl:text-5xl lg:mb-2">
               Subscribe <br />

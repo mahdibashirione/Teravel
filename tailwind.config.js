@@ -6,6 +6,7 @@ export default {
       container: { center: true },
       colors: {
         primary: "#8DD3BB",
+        secend: "#FF8682",
       },
     },
   },
