@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import SearchBox from "./SearchBox";
 import { motion } from "framer-motion";
 import { useTarget } from "../context/TargetProvider";
@@ -40,11 +40,24 @@ const Hero = () => {
       ),
     },
   ];
+  const containerCover = useRef();
   const target = useTarget();
+  const [withCover, setWithCover] = useState();
+
+  useEffect(() => {
+    setWithCover(containerCover.current.clientWidth);
+    window.addEventListener("resize", () => {
+      setWithCover(containerCover.current.clientWidth);
+    });
+  }, []);
 
   return (
     <section className="container relative mb-[148px]">
-      <div className="w-full h-[399px] md:h-[430px] lg:h-[480px] xl:h-[510px] rounded-2xl overflow-hidden relative">
+      <div
+        ref={containerCover}
+        className="w-full h-[399px] md:h-[430px] lg:h-[480px] xl:h-[510px] rounded-2xl overflow-hidden relative"
+      >
+        {/* Description & Title */}
         <div className="absolute flex flex-col left-1/2 -translate-x-1/2 justify-center w-[90%] h-full text-white z-20 -mt-14 md:-mt-16 select-none">
           <h2 className="font-bold text-3xl -mb-2 md:text-4xl lg:text-5xl xl:text-6xl lg:-mb-4 leading-10 md:leading-[44px] lg:leading-[54px] xl:leading-[68px]">
             Make your travel <br /> whishlist, we’ll do
@@ -54,30 +67,30 @@ const Hero = () => {
             Special offers to suit your plan
           </span>
         </div>
-        <motion.img
-          initial={{ opacity: 0 }}
-          animate={
-            target === "Flights"
-              ? { opacity: 1 }
-              : { opacity: 0, display: "none" }
-          }
-          src="/image/HeroFlights.svg"
-          className={`w-full h-full object-cover`}
-          loading="lazy"
-          alt=""
-        />
-        <motion.img
-          initial={{ opacity: 0 }}
-          animate={target === "Stays" ? { opacity: 1 } : { opacity: 0 }}
-          src="/image/HeroHotel.svg"
-          className={`w-full h-full object-cover`}
-          loading="lazy"
-          alt=""
-        />
+        {/* Cover */}
+        <div className="h-full relative overflow-hidden">
+          <div
+            style={target === "Flights" ? { left: 0 } : { left: -withCover }}
+            className={`duration-300 flex h-full absolute`}
+          >
+            <img
+              style={{ width: withCover }}
+              src="/image/HeroFlights.svg"
+              className={`w-full object-cover`}
+              loading="lazy"
+              alt=""
+            />
+            <img
+              style={{ width: withCover }}
+              src="/image/HeroHotel.svg"
+              className={`w-full object-cover`}
+              loading="lazy"
+              alt=""
+            />
+          </div>
+        </div>
       </div>
-      <SearchBox
-        tabs={tabOptions}
-      />
+      <SearchBox tabs={tabOptions} />
     </section>
   );
 };

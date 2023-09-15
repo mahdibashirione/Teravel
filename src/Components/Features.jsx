@@ -44,7 +44,7 @@ const Features = () => {
   };
 
   return (
-    <section className="p-4">
+    <section className="p-4 pt-28 md:pt-0">
       <div className="container flex flex-col items-center md:items-stretch gap-4 md:flex-row">
         {featureData.map((feature) => {
           return (

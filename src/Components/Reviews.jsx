@@ -89,7 +89,7 @@ const Reviews = () => {
                 key={review.id}
                 to={review.url}
                 className="bg-white rounded-2xl p-4 border shadow-[0.75rem_0.75rem_0_0_rgba(0,0,0,0.3)] shadow-primary/50 
-                w-[350px] block min-w-[350px]"
+                w-full max-w-[350px] block min-w-[280px] md:min-w-[300px]"
               >
                 {/* title */}
                 <h3 className="font-bold text-xl">“{review.title}”</h3>

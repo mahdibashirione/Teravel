@@ -46,23 +46,37 @@ const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const animateContaier = {
-    hidden: { width: 0, height: 0 },
-    show: {
-      width: 110,
-      height: 97,
+    hidden: {
+      scale: 0,
+      opacity: 0,
       transition: {
-        duration: 0.3,
-        delay: 0.4,
+        delay: 0.2,
+      },
+    },
+    show: {
+      scale: 1,
+      opacity: 1,
+      transition: {
+        duration: 0.1,
         delayChildren: 0.2,
         staggerChildren: 0.2,
       },
     },
   };
   const animateItems = {
-    hidden: { y: -50, opacity: 0 },
+    hidden: {
+      y: -50,
+      opacity: 0,
+      transition: {
+        duration: 0.1,
+      },
+    },
     show: {
       y: 0,
       opacity: 1,
+      transition: {
+        duration: 0.1,
+      },
     },
   };
 
@@ -105,6 +119,7 @@ const Header = () => {
                 })}
             </button>
             <motion.div
+              initial={{ scale: 0, opacity: 0 }}
               variants={animateContaier}
               animate={isOpen ? "show" : "hidden"}
               className="absolute left-0 min-w-[110px] bg-white rounded-lg shadow shadow-zinc-500 divide-y mt-2 overflow-hidden"
@@ -112,6 +127,7 @@ const Header = () => {
               {navItems.map((item) => {
                 return (
                   <motion.button
+                    variants={animateItems}
                     onClick={(e) => {
                       handleChangeTarget(item.title);
                       setIsOpen(false);
