@@ -1,12 +1,17 @@
+import { useLocation } from "react-router-dom";
 import Footer from "../Components/Footer";
 import Header from "../Components/Header";
 
 const Layout = ({ children }) => {
+  const { pathname } = useLocation();
+
   return (
     <>
-      <Header />
-      <main className="p-4 pt-[88px]">{children}</main>
-      <Footer />
+      {pathname !== "/login" && <Header />}
+      <main className={`p-4 ${pathname !== "/login" && "pt-[88px]"}`}>
+        {children}
+      </main>
+      {pathname !== "/login" && <Footer />}
     </>
   );
 };

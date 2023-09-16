@@ -1,11 +1,30 @@
 import { Link } from "react-router-dom";
 import Input from "../../Components/common/Input";
+import { useEffect, useRef, useState } from "react";
+import { motion } from "framer-motion";
 
 const Login = () => {
+  const forms = useRef();
+  const [heightForms, setHeightForms] = useState(255);
+
+  useEffect(() => {
+    window.scrollTo({ top: 0 });
+    setHeightForms(forms.current.clientHeight);
+    document.addEventListener("resize", () => {
+      setHeightForms(forms.current.clientHeight);
+    });
+  }, []);
+
   return (
     <section className="p-4">
-      <div className="container grid grid-cols-1 md:grid-cols-2">
-        <div className="col-span-1 flex flex-col items-start">
+      <div className="container grid grid-cols-1 md:grid-cols-2 gap-4 max-w-[900px]">
+        <motion.div
+          initial={{ x: -100 }}
+          animate={{ x: 0 }}
+          transition={{ duration: 0.4 }}
+          ref={forms}
+          className="col-span-1 flex flex-col items-start"
+        >
           <div className="w-full max-w-[512px] mx-auto">
             <div>
               <h2 className="font-bold text-3xl lg:text-4xl xl:text-5xl">
@@ -120,10 +139,21 @@ const Login = () => {
               </Link>
             </div>
           </div>
-        </div>
-        <div className="col-span-1 hidden md:block">
-          <img src="/image/register.svg" loading="lazy" alt="" />
-        </div>
+        </motion.div>
+        <motion.div
+          initial={{ x: 100 }}
+          animate={{ x: 0 }}
+          transition={{ duration: 0.4 }}
+          style={{ height: heightForms }}
+          className="col-span-1 hidden md:block rounded-2xl overflow-hidden"
+        >
+          <img
+            className="mx-auto h-full object-cover"
+            src="/image/register.svg"
+            loading="lazy"
+            alt=""
+          />
+        </motion.div>
       </div>
     </section>
   );

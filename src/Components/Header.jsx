@@ -62,14 +62,14 @@ const Header = () => {
           </svg>
         </Link>
         <div className="flex text-sm md:text-base items-center gap-2">
-          <Link to="/login" className="hidden md:block rounded-lg py-2 px-3">
-            Login
+          <Link to="/signup" className="hidden md:block rounded-lg py-2 px-3">
+            Sign Up
           </Link>
           <Link
-            to="/register"
-            className="rounded-lg bg-zinc-900 text-white py-2 px-3"
+            to="/login"
+            className="rounded-lg bg-zinc-900 text-white py-2 px-4"
           >
-            Sign up
+            Login
           </Link>
         </div>
       </div>
