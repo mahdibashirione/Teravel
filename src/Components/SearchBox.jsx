@@ -1,11 +1,50 @@
-import { useState } from "react";
-import { FiPlus, FiSearch } from "react-icons/fi";
-import { useTarget, useTargetActions } from "../context/TargetProvider";
+import { useRef, useState } from "react";
+import { FiMinus, FiPlus, FiSearch } from "react-icons/fi";
+import { RiUser3Fill } from "react-icons/ri";
+import { TbBuildingCottage } from "react-icons/tb";
+import { FaBaby } from "react-icons/fa";
+import useOutsideClick from "../Hooks/useOutsideClick";
+import { motion } from "framer-motion";
+import { DateRange } from "react-date-range";
+import "react-date-range/dist/styles.css";
+import "react-date-range/dist/theme/default.css";
+import { format } from "date-fns";
 
 const SearchBox = ({ tabs }) => {
   const [saerchValue, setSearchValue] = useState("");
-  const target = useTarget();
-  const { handleChangeTarget } = useTargetActions();
+  const [optionsValue, setOptionsValue] = useState({
+    adult: 1,
+    children: 0,
+    room: 1,
+  });
+  const [date, setDate] = useState([
+    {
+      startDate: new Date(),
+      endDate: new Date(),
+      key: "selection",
+    },
+  ]);
+  const [openOption, setOpenOption] = useState(false);
+  const [openDateRange, setOpenDateRange] = useState(false);
+  const guestOption = useRef();
+  const guestDateRange = useRef();
+
+  useOutsideClick(guestOption, (e) => setOpenOption(false), "buttonOptions");
+  useOutsideClick(
+    guestDateRange,
+    (e) => setOpenDateRange(false),
+    "buttonDateRange"
+  );
+
+  const handleOptions = (name, oprations) => {
+    setOptionsValue((prev) => {
+      return {
+        ...prev,
+        [name]:
+          oprations === "inc" ? optionsValue[name]++ : optionsValue[name]--,
+      };
+    });
+  };
 
   return (
     <article className="absolute -bottom-56 md:-bottom-28 left-1/2 z-20 -translate-x-1/2 bg-white shadow rounded-2xl p-4 w-[90%] border max-w-[1300px]">
@@ -54,14 +93,14 @@ const SearchBox = ({ tabs }) => {
           >
             Chek Out
           </label>
-          <input
-            id="search-inpu"
-            className="p-4 border border-gray-400 focus:shadow-md shadow-primary rounded-md outline-none focus:border-primary w-full"
-            onChange={(e) => setSearchValue(e.target.value)}
-            value={saerchValue}
-            type="text"
-            placeholder="Sun 12/7"
-          />
+          <button
+            onClick={(e) => setOpenDateRange(!openDateRange)}
+            id="buttonDateRange"
+            className="p-4 border border-gray-400 focus:shadow-md shadow-primary rounded-md outline-none focus:border-primary w-full text-left text-sm md:text-base"
+          >
+            {format(date[0].startDate, "mm/dd/yyyy")} -{" "}
+            {format(date[0].endDate, "mm/dd/yyyy")}
+          </button>
           <svg
             className="w-6 h-6 absolute right-4 top-1/2 -translate-y-1/2"
             viewBox="0 0 24 24"
@@ -73,23 +112,45 @@ const SearchBox = ({ tabs }) => {
               fill="#112211"
             />
           </svg>
+          <motion.div
+            ref={guestDateRange}
+            initial={{ scale: 0, opacity: 0 }}
+            animate={
+              openDateRange
+                ? { scale: 1, opacity: 1 }
+                : { scale: 0, opacity: 0 }
+            }
+            className="absolute top-full mt-2 left-0 z-20 shadow border rounded"
+          >
+            <DateRange
+              ranges={date}
+              onChange={(item) => setDate([item.selection])}
+            />
+          </motion.div>
         </div>
-        {/* rooms */}
+        {/* Options */}
         <div className="relative flex-1 text-sm lg:text-base">
           <label
             htmlFor="search-input"
-            className={`absolute bg-white duration-300 left-4 -top-2.5 text-sm`}
+            className={`absolute bg-white duration-300 left-4 -top-2.5 text-sm z-10`}
           >
-            Rooms & Guests
+            Options
           </label>
-          <input
-            id="search-inpu"
-            className="p-4 border border-gray-400 focus:shadow-md shadow-primary rounded-md outline-none focus:border-primary w-full"
-            onChange={(e) => setSearchValue(e.target.value)}
-            value={saerchValue}
-            type="text"
-            placeholder="1 room, 2 guests"
-          />
+          <button
+            onClick={(e) => setOpenOption(!openOption)}
+            id="buttonOptions"
+            className="p-4 border border-gray-400 focus:shadow-md shadow-primary rounded-md outline-none focus:border-primary w-full relative text-left flex items-center gap-3"
+          >
+            <span className="flex gap-1 items-center font-bold">
+              {optionsValue.adult} <RiUser3Fill className="text-lg" />
+            </span>
+            <span className="flex gap-1 items-center font-bold">
+              {optionsValue.children} <FaBaby className="text-lg" />
+            </span>
+            <span className="flex gap-1 items-center font-bold">
+              {optionsValue.room} <TbBuildingCottage className="text-lg" />
+            </span>
+          </button>
           <svg
             className="w-6 h-6 absolute right-4 top-1/2 -translate-y-1/2"
             viewBox="0 0 24 24"
@@ -104,6 +165,12 @@ const SearchBox = ({ tabs }) => {
               strokeLinejoin="round"
             />
           </svg>
+          <GuestOptionsList
+            isOpen={openOption}
+            handleOptions={handleOptions}
+            options={optionsValue}
+            refrens={guestOption}
+          />
         </div>
       </div>
       {/* actions */}
@@ -124,7 +191,7 @@ const SearchBox = ({ tabs }) => {
               fill="black"
             />
           </svg>
-          Show {target}
+          Show Hotels
         </button>
       </div>
     </article>
@@ -132,3 +199,63 @@ const SearchBox = ({ tabs }) => {
 };
 
 export default SearchBox;
+
+function GuestOptionsList({ refrens, options, handleOptions, isOpen }) {
+  return (
+    <motion.div
+      initial={{ scale: 0, opacity: 0 }}
+      animate={isOpen ? { scale: 1, opacity: 1 } : { scale: 0, opacity: 0 }}
+      ref={refrens}
+      className={`absolute top-full left-0 mt-1 bg-white border p-4 rounded shadow w-full border-gray-400/70 flex flex-col gap-y-2 overflow-hidden shadow-zinc-300`}
+    >
+      <OptionItem
+        icon={<RiUser3Fill className="text-lg" />}
+        handleOptions={handleOptions}
+        type="adult"
+        minLimit={1}
+        options={options}
+      />
+      <OptionItem
+        icon={<FaBaby className="text-lg" />}
+        handleOptions={handleOptions}
+        type="children"
+        minLimit={0}
+        options={options}
+      />
+      <OptionItem
+        icon={<TbBuildingCottage className="text-lg" />}
+        handleOptions={handleOptions}
+        type="room"
+        minLimit={1}
+        options={options}
+      />
+    </motion.div>
+  );
+}
+
+function OptionItem({ type, minLimit, options, handleOptions, icon }) {
+  return (
+    <div className="flex items-center gap-4 select-none w-full max-w-[200px] mx-auto">
+      <span className="font-semibold flex-1 flex items-center gap-1">
+        {icon}
+        {type}
+      </span>
+      <div className="flex items-center gap-3">
+        <button
+          disabled={minLimit >= options[type]}
+          onClick={() => handleOptions(type, "dec")}
+          className="p-1.5 rounded bg-primary "
+        >
+          <FiMinus />
+        </button>
+        <span>{options[type]}</span>
+        <button
+          onClick={() => handleOptions(type, "inc")}
+          className="p-1.5 rounded bg-primary "
+        >
+          <FiPlus />
+        </button>
+      </div>
+    </div>
+  );
+}
