@@ -7,11 +7,13 @@ const Layout = ({ children }) => {
 
   return (
     <>
-      {pathname !== "/login" && <Header />}
-      <main className={`p-4 ${pathname !== "/login" && "pt-[88px]"}`}>
+      {pathname !== "/login" || ("/hotels" && <Header />)}
+      <main
+        className={`${pathname !== "/login" || ("/hotels" && "pt-[88px]")}`}
+      >
         {children}
       </main>
-      {pathname !== "/login" && <Footer />}
+      {pathname !== "/login" || ("/hotels" && <Footer />)}
     </>
   );
 };

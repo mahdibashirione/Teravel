@@ -60,7 +60,7 @@ const TeravelTours = () => {
   };
 
   return (
-    <section className="p-4 pt-28 md:pt-0">
+    <section className="p-4 pt-28 md:pt-0 z-0">
       {/* Header */}
       <div className="flex container items-center justify-between mb-4">
         <div>
