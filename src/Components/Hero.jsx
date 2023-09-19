@@ -1,7 +1,4 @@
-import { useEffect, useRef, useState } from "react";
 import SearchBox from "./SearchBox";
-import { motion } from "framer-motion";
-import { useTarget } from "../context/TargetProvider";
 
 const Hero = () => {
   return (

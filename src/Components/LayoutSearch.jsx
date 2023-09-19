@@ -18,17 +18,17 @@ const LayoutSearch = ({ dateRange, options, search, handleSubmit }) => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <section>
-      <div className="h-screen flex flex-wrap container">
+    <section className="max-w-[1400px] mx-auto">
+      <div className="h-screen flex flex-wrap">
         {/* Sidebar */}
         <div
-          className={`bg-white shadow w-[300px] h-full pr-4 fixed top-0 duration-300 lg:static lg:p-2 lg:bg-transparent lg:shadow-none lg:w-[270px] ${
+          className={`bg-white shadow w-[300px] h-full pr-4 fixed top-0 duration-300 lg:static lg:p-2 lg:w-[270px] border-r border-gray-300 ${
             isOpen ? "left-0" : "-left-[300px]"
           }`}
         >
           <form
             onSubmit={handleSubmit}
-            className="h-full p-4 flex items-start justify-start flex-col gap-6 lg:bg-white lg:shadow lg:rounded-2xl lg:border"
+            className="h-full p-4 flex items-start justify-start flex-col gap-6"
           >
             <CitySelect className="w-full" searchData={search} />
             <DateRangeSelect className="w-full" dateRangeData={dateRange} />
@@ -58,10 +58,8 @@ const LayoutSearch = ({ dateRange, options, search, handleSubmit }) => {
           <Outlet />
         </div>
         {/* Map */}
-        <div className="flex-1 hidden md:block py-2">
-          <div className="h-full shadow rounded-2xl overflow-hidden">
-            <Map />
-          </div>
+        <div className="flex-1 hidden md:block">
+          <Map />
         </div>
       </div>
     </section>

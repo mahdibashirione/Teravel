@@ -68,7 +68,7 @@ const hotels = [
     is_long_closed: false,
     price_level: "$$",
     price: "$110 - $172",
-    hotel_class: "5.0",
+    hotel_class: "2",
     hotel_class_attribution: "This property is classified according to Giata.",
     business_listings: {
       desktop_contacts: [],
@@ -149,7 +149,7 @@ const hotels = [
     is_long_closed: false,
     price_level: "$",
     price: "$55 - $86",
-    hotel_class: "3.0",
+    hotel_class: "3",
     hotel_class_attribution: "This property is classified according to Giata.",
     business_listings: {
       desktop_contacts: [],
@@ -230,7 +230,7 @@ const hotels = [
     is_long_closed: false,
     price_level: "$",
     price: "$32 - $58",
-    hotel_class: "3.0",
+    hotel_class: "3",
     hotel_class_attribution: "This property is classified according to Giata.",
     business_listings: {
       desktop_contacts: [],
@@ -307,7 +307,7 @@ const hotels = [
     is_long_closed: false,
     price_level: "$$",
     price: "$95 - $141",
-    hotel_class: "5.0",
+    hotel_class: "5",
     hotel_class_attribution: "This property is classified according to Giata.",
     business_listings: {
       desktop_contacts: [],
@@ -403,7 +403,7 @@ const hotels = [
     is_long_closed: false,
     price_level: "$$",
     price: "$96 - $137",
-    hotel_class: "5.0",
+    hotel_class: "5",
     hotel_class_attribution: "This property is classified according to Giata.",
     business_listings: {
       desktop_contacts: [],
@@ -480,7 +480,7 @@ const hotels = [
     is_long_closed: false,
     price_level: "$",
     price: "$32 - $52",
-    hotel_class: "4.0",
+    hotel_class: "4",
     hotel_class_attribution: "This property is classified according to Giata.",
     business_listings: {
       desktop_contacts: [],
@@ -561,7 +561,7 @@ const hotels = [
     is_long_closed: false,
     price_level: "$",
     price: "$84 - $117",
-    hotel_class: "5.0",
+    hotel_class: "5",
     hotel_class_attribution: "This property is classified according to Giata.",
     business_listings: {
       desktop_contacts: [],
@@ -642,7 +642,7 @@ const hotels = [
     is_long_closed: false,
     price_level: "$",
     price: "$51 - $73",
-    hotel_class: "4.0",
+    hotel_class: "4",
     hotel_class_attribution: "This property is classified according to Giata.",
     business_listings: {
       desktop_contacts: [],
@@ -737,7 +737,7 @@ const hotels = [
     is_long_closed: false,
     price_level: "$",
     price: "$45 - $80",
-    hotel_class: "4.0",
+    hotel_class: "4",
     hotel_class_attribution: "This property is classified according to Giata.",
     business_listings: {
       desktop_contacts: [],
@@ -828,7 +828,7 @@ const hotels = [
     is_long_closed: false,
     price_level: "$$",
     price: "$134 - $219",
-    hotel_class: "0.0",
+    hotel_class: "2",
     business_listings: {
       desktop_contacts: [],
       mobile_contacts: [],
@@ -908,7 +908,7 @@ const hotels = [
     is_long_closed: false,
     price_level: "$",
     price: "$38 - $51",
-    hotel_class: "5.0",
+    hotel_class: "5",
     hotel_class_attribution: "This property is classified according to Giata.",
     business_listings: {
       desktop_contacts: [],
@@ -985,7 +985,7 @@ const hotels = [
     is_long_closed: false,
     price_level: "$",
     price: "$59 - $133",
-    hotel_class: "5.0",
+    hotel_class: "5",
     hotel_class_attribution:
       "This property is classified according to Accor Hotels.",
     business_listings: {
@@ -1067,7 +1067,7 @@ const hotels = [
     is_long_closed: false,
     price_level: "$",
     price: "$62 - $93",
-    hotel_class: "5.0",
+    hotel_class: "5",
     hotel_class_attribution: "This property is classified according to Giata.",
     business_listings: {
       desktop_contacts: [],
@@ -1148,7 +1148,7 @@ const hotels = [
     is_long_closed: false,
     price_level: "$",
     price: "$22 - $34",
-    hotel_class: "3.0",
+    hotel_class: "3",
     hotel_class_attribution: "This property is classified according to Giata.",
     business_listings: {
       desktop_contacts: [],
@@ -1229,7 +1229,7 @@ const hotels = [
     is_long_closed: false,
     price_level: "$$",
     price: "$105 - $163",
-    hotel_class: "5.0",
+    hotel_class: "5",
     hotel_class_attribution: "This property is classified according to Giata.",
     business_listings: {
       desktop_contacts: [],
@@ -1310,7 +1310,7 @@ const hotels = [
     is_long_closed: false,
     price_level: "$",
     price: "$23 - $37",
-    hotel_class: "4.0",
+    hotel_class: "4",
     hotel_class_attribution: "This property is classified according to Giata.",
     business_listings: {
       desktop_contacts: [],
@@ -1387,7 +1387,7 @@ const hotels = [
     is_long_closed: false,
     price_level: "$$",
     price: "$109 - $156",
-    hotel_class: "4.0",
+    hotel_class: "4",
     hotel_class_attribution: "This property is classified according to Giata.",
     business_listings: {
       desktop_contacts: [],
@@ -1478,7 +1478,7 @@ const hotels = [
     is_long_closed: false,
     price_level: "$",
     price: "$26 - $35",
-    hotel_class: "3.0",
+    hotel_class: "3",
     hotel_class_attribution: "This property is classified according to Giata.",
     business_listings: {
       desktop_contacts: [],
@@ -1559,7 +1559,7 @@ const hotels = [
     is_long_closed: false,
     price_level: "$",
     price: "$13 - $22",
-    hotel_class: "3.0",
+    hotel_class: "3",
     hotel_class_attribution: "This property is classified according to Giata.",
     business_listings: {
       desktop_contacts: [],
@@ -1640,7 +1640,7 @@ const hotels = [
     is_long_closed: false,
     price_level: "$",
     price: "$19 - $26",
-    hotel_class: "4.0",
+    hotel_class: "4",
     hotel_class_attribution: "This property is classified according to Giata.",
     business_listings: {
       desktop_contacts: [],
@@ -1721,7 +1721,7 @@ const hotels = [
     is_long_closed: false,
     price_level: "$",
     price: "$49 - $74",
-    hotel_class: "4.0",
+    hotel_class: "4",
     hotel_class_attribution: "This property is classified according to Giata.",
     business_listings: {
       desktop_contacts: [],
@@ -1802,7 +1802,7 @@ const hotels = [
     is_long_closed: false,
     price_level: "$",
     price: "$16 - $22",
-    hotel_class: "4.0",
+    hotel_class: "4",
     hotel_class_attribution: "This property is classified according to Giata.",
     business_listings: {
       desktop_contacts: [],
@@ -1879,7 +1879,7 @@ const hotels = [
     is_long_closed: false,
     price_level: "$$$",
     price: "$173 - $236",
-    hotel_class: "0.0",
+    hotel_class: "2",
     business_listings: {
       desktop_contacts: [],
       mobile_contacts: [
@@ -1966,7 +1966,7 @@ const hotels = [
     is_long_closed: false,
     price_level: "$",
     price: "$23 - $29",
-    hotel_class: "3.0",
+    hotel_class: "3",
     hotel_class_attribution: "This property is classified according to Giata.",
     business_listings: {
       desktop_contacts: [],
@@ -2043,7 +2043,7 @@ const hotels = [
     is_long_closed: false,
     price_level: "$",
     price: "$77 - $106",
-    hotel_class: "5.0",
+    hotel_class: "5",
     hotel_class_attribution:
       "This property is classified according to Accor Hotels.",
     business_listings: {
@@ -2125,7 +2125,7 @@ const hotels = [
     is_long_closed: false,
     price_level: "$",
     price: "$48 - $70",
-    hotel_class: "4.0",
+    hotel_class: "4",
     hotel_class_attribution: "This property is classified according to Giata.",
     business_listings: {
       desktop_contacts: [],
@@ -2206,7 +2206,7 @@ const hotels = [
     is_long_closed: false,
     price_level: "$",
     price: "$33 - $49",
-    hotel_class: "4.0",
+    hotel_class: "4",
     hotel_class_attribution: "This property is classified according to Giata.",
     business_listings: {
       desktop_contacts: [],
@@ -2283,7 +2283,7 @@ const hotels = [
     is_long_closed: false,
     price_level: "$",
     price: "$64 - $100",
-    hotel_class: "4.0",
+    hotel_class: "4",
     hotel_class_attribution: "This property is classified according to Giata.",
     business_listings: {
       desktop_contacts: [],
@@ -2367,7 +2367,7 @@ const hotels = [
     is_long_closed: false,
     price_level: "$",
     price: "$61 - $81",
-    hotel_class: "4.0",
+    hotel_class: "4",
     hotel_class_attribution: "This property is classified according to Giata.",
     business_listings: {
       desktop_contacts: [],
@@ -2462,7 +2462,7 @@ const hotels = [
     is_long_closed: false,
     price_level: "$",
     price: "$32 - $54",
-    hotel_class: "3.0",
+    hotel_class: "3",
     hotel_class_attribution: "This property is classified according to Giata.",
     business_listings: {
       desktop_contacts: [],
