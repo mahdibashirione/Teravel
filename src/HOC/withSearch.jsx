@@ -1,13 +1,20 @@
 import { useRef, useState } from "react";
-import { createSearchParams, useNavigate } from "react-router-dom";
+import {
+  createSearchParams,
+  useNavigate,
+  useSearchParams,
+} from "react-router-dom";
 
 const withSearch = (ComponentWrapped) => {
   const newComponent = (props) => {
-    const [options, setOptions] = useState({
-      adult: 1,
-      children: 0,
-      room: 1,
-    });
+    const [searchParams, setSearchParams] = useSearchParams();
+    const [options, setOptions] = useState(
+      JSON.parse(searchParams.get("options")) || {
+        adult: 1,
+        children: 0,
+        room: 1,
+      }
+    );
     const [date, setDate] = useState([
       {
         startDate: new Date(),
@@ -15,7 +22,7 @@ const withSearch = (ComponentWrapped) => {
         key: "selection",
       },
     ]);
-    const [search, setSearch] = useState("");
+    const [search, setSearch] = useState(searchParams.get("city") || "");
     const [openOption, setOpenOption] = useState(false);
     const [openDateRange, setOpenDateRange] = useState(false);
     const navigate = useNavigate(false);

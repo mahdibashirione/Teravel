@@ -2,7 +2,7 @@ import SearchBox from "./SearchBox";
 
 const Hero = () => {
   return (
-    <section className="container relative mb-[148px]">
+    <section className="container relative mb-[148px] p-2">
       <div className="w-full h-[399px] md:h-[430px] lg:h-[480px] xl:h-[510px] rounded-2xl overflow-hidden relative">
         {/* Description & Title */}
         <div className="absolute flex flex-col left-1/2 -translate-x-1/2 justify-center w-[90%] h-full text-white z-20 -mt-14 md:-mt-16 select-none">

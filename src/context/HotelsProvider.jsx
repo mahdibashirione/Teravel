@@ -1,17 +1,16 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import useFeatch from "../Hooks/useFeatch";
 
 const HotelsContext = createContext();
 
 const HotelsProvider = ({ children }) => {
-  // state
-  const [seachParams, setSearchParams] = useSearchParams();
-  // Params
-  const options = JSON.parse(seachParams.get("options"));
-  const date = JSON.parse(seachParams.get("date"));
-  const city = seachParams.get("city");
-  // Featch
+  const [searchParams, setSearchParams] = useSearchParams();
+
+  const city = searchParams.get("city");
+  const options = searchParams.get("options");
+  const date = searchParams.get("date");
+
   const { data, isLoading, error } = useFeatch(
     "https://travel-advisor.p.rapidapi.com/hotels/list",
     options

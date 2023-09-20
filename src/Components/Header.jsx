@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
-    <header className="w-full fixed top-0 z-30 backdrop-blur-2xl bg-white/40 shadow">
+    <header className="w-full fixed top-0 z-50 backdrop-blur-2xl bg-white/40 shadow">
       <div className="container flex justify-between items-center p-4">
         <h2 className="flex gap-2 text-sm md:text-base relative">
           <svg
