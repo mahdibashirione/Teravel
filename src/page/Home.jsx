@@ -6,8 +6,8 @@ const HomePage = () => {
   return (
     <>
       <Hero />
-      <TeravelTours />
-      <Option />
+      {/* <TeravelTours />
+      <Option /> */}
     </>
   );
 };

@@ -9,11 +9,11 @@ const Layout = ({ children }) => {
     <>
       {pathname !== ("/login" || "/hotels") && <Header />}
       <main
-        className={`${pathname !== ("/login" || "/hotels") && "pt-[72px]"}`}
+        className={`${pathname !== ("/login" || "/hotels") && "pt-[88px]"}`}
       >
         {children}
       </main>
-      {pathname === "/" && <Footer />}
+      {/* {pathname === "/" && <Footer />} */}
     </>
   );
 };
