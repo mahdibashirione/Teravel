@@ -59,7 +59,7 @@ const SearchBox = ({ dateRange, options, search, handleSubmit }) => {
         </div>
         <button
           type="submit"
-          className="bg-primary px-8 text-white text-3xl rounded-[10px] duration-200 active:scale-95 selec"
+          className="bg-primary px-6 md:px-8 text-white text-2xl md:text-3xl rounded-[10px] duration-200 active:scale-95 selec"
         >
           <BiSearchAlt />
         </button>
