@@ -20,11 +20,7 @@ const Header = () => {
         </button>
         {/* Logo Site */}
         <Link className="block" to="/">
-          <img
-            src="/public/image/TravelInt.svg"
-            loading="lazy"
-            alt="Travel.int"
-          />
+          <img src="/image/TravelInt.svg" loading="lazy" alt="Travel.int" />
         </Link>
         {/* Navbar */}
         <nav className="hidden md:block">
