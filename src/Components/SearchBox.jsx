@@ -5,9 +5,12 @@ import { FiChevronDown, FiMinus, FiPlus } from "react-icons/fi";
 
 const SearchBox = ({ dateRange, options, search, handleSubmit }) => {
   return (
-    <article className="absolute md:-bottom-16 -bottom-[52px] left-1/2 rounded-[32px] overflow-hidden -translate-x-1/2 bg-white/90 shadow-main backdrop-blur">
+    <article className="absolute md:-bottom-16 -bottom-[52px] left-1/2 md:rounded-[32px] rounded-3xl overflow-hidden -translate-x-1/2 bg-white/90 shadow-main backdrop-blur">
       {/* forms */}
-      <form onSubmit={handleSubmit} className="md:p-8 p-6 flex gap-x-6">
+      <form
+        onSubmit={handleSubmit}
+        className="md:p-8 p-5 flex md:gap-x-6 gap-x-4"
+      >
         <div>
           <label
             htmlFor=""

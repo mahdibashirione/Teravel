@@ -2,7 +2,7 @@ import SearchBox from "./SearchBox";
 
 const Hero = () => {
   return (
-    <section className="container relative px-2 md:mb-[64px] mb-[52px]">
+    <section className="container relative px-4 md:mb-[64px] mb-[52px]">
       <div
         className="max-w-6xl mx-auto bg-gradient-to-b 
       from-[#FFBEBE]/40 to-[#B5D2FF] px-12 pt-6 lg:pt-8 rounded-[32px] md:rounded-[48px] lg:rounded-[64px] xl:rounded-[72px]"
