@@ -27,11 +27,11 @@ const Header = () => {
           <ul className="flex gap-x-8 2xl:gap-x-10">
             {navItems.map((link) => {
               return (
-                <li>
+                <li key={link.id}>
                   <NavLink
                     className={`block border-b-2 text-lg ${
                       pathname === link.url
-                        ? "border-primary text-zinc-900 font-bold"
+                        ? "border-primary/70 text-primary font-bold"
                         : "text-[#AEAEAE] border-transparent"
                     }`}
                     to={link.url}

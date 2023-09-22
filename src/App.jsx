@@ -6,10 +6,11 @@ import LayoutSearch from "./Components/LayoutSearch";
 import HotelList from "./Components/HotelList";
 import HotelsProvider from "./context/HotelsProvider";
 import SingleHotel from "./Components/SingleHotel";
+import { Toaster } from "react-hot-toast";
 
 function App() {
   return (
-    <>
+    <div>
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/login" element={<Login />} />
@@ -19,7 +20,8 @@ function App() {
           <Route path=":id" element={<SingleHotel />} />
         </Route>
       </Routes>
-    </>
+      <Toaster position="top-center" reverseOrder={false} />
+    </div>
   );
 }
 

@@ -4,9 +4,12 @@ import {
   useNavigate,
   useSearchParams,
 } from "react-router-dom";
+import useToast from "../Hooks/useToast";
+import { format } from "date-fns";
 
 const withSearch = (ComponentWrapped) => {
   const newComponent = (props) => {
+    const { toastError } = useToast();
     const [searchParams, setSearchParams] = useSearchParams();
     const [options, setOptions] = useState(
       JSON.parse(searchParams.get("options")) || {
@@ -22,7 +25,7 @@ const withSearch = (ComponentWrapped) => {
         key: "selection",
       },
     ]);
-    const [search, setSearch] = useState(searchParams.get("city") || "");
+    const [location, setLocation] = useState(searchParams.get("city") || "");
     const [openOption, setOpenOption] = useState(false);
     const [openDateRange, setOpenDateRange] = useState(false);
     const navigate = useNavigate(false);
@@ -37,15 +40,24 @@ const withSearch = (ComponentWrapped) => {
     };
     const handleSubmit = (e) => {
       e.preventDefault();
-      const encodedParams = createSearchParams({
-        date: JSON.stringify(date),
-        city: search,
-        options: JSON.stringify(options),
-      });
-      navigate({
-        pathname: "/hotels",
-        search: encodedParams.toString(),
-      });
+      if (location === "") {
+        toastError("please, set input Location");
+      } else if (
+        format(date[0].startDate, "dd/mm/yyyy") ===
+        format(date[0].endDate, "dd/mm/yyyy")
+      ) {
+        toastError("please, set input Date");
+      } else {
+        const encodedParams = createSearchParams({
+          date: JSON.stringify(date),
+          options: JSON.stringify(options),
+          location,
+        });
+        navigate({
+          pathname: "/hotels",
+          search: encodedParams.toString(),
+        });
+      }
     };
 
     return (
@@ -58,7 +70,7 @@ const withSearch = (ComponentWrapped) => {
         }}
         options={{ openOption, setOpenOption, handleOptions, options }}
         {...props}
-        search={{ search, setSearch }}
+        location={{ location, setLocation }}
         handleSubmit={handleSubmit}
       />
     );

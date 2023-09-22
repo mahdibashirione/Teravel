@@ -1,13 +1,13 @@
 import Hero from "../Components/Hero";
-import Option from "../Components/Option";
-import TeravelTours from "../Components/TeravelTours";
+import PopularSearch from "../Components/PopularSearch";
+import Category from "../Components/Category";
 
 const HomePage = () => {
   return (
     <>
       <Hero />
-      {/* <TeravelTours />
-      <Option /> */}
+      <PopularSearch />
+      <Category />
     </>
   );
 };

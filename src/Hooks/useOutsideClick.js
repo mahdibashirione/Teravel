@@ -6,7 +6,7 @@ function useOutsideClick(ref, cb, exceptionId) {
       if (
         ref.current &&
         !ref.current.contains(e.target) &&
-        e.target.id !== exceptionId
+        !e.target.classList.contains(exceptionId)
       ) {
         cb();
       }
