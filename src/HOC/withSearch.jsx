@@ -42,11 +42,6 @@ const withSearch = (ComponentWrapped) => {
       e.preventDefault();
       if (location === "") {
         toastError("please, set input Location");
-      } else if (
-        format(date[0].startDate, "dd/mm/yyyy") ===
-        format(date[0].endDate, "dd/mm/yyyy")
-      ) {
-        toastError("please, set input Date");
       } else {
         const encodedParams = createSearchParams({
           date: JSON.stringify(date),

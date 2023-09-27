@@ -10,7 +10,7 @@ const HotelList = () => {
 
   return (
     <article className="w-full">
-      <div className="px-4 py-1">
+      <div className="px-4 pb-4 flex flex-col items-center">
         {hotels.map((hotel) => (
           <HotelCard key={hotel.location_id} hotel={hotel} />
         ))}
