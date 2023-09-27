@@ -4,6 +4,7 @@ import Category from "../Components/Category";
 import AboutBerand from "../Components/AboutBerand";
 import TopTours from "../Components/TopTours";
 import QRCodeDiscount from "../Components/QRCodeDiscount";
+import Footer from "../Components/Footer";
 
 const HomePage = () => {
   return (
@@ -14,6 +15,7 @@ const HomePage = () => {
       <AboutBerand />
       <TopTours />
       <QRCodeDiscount />
+      <Footer />
     </>
   );
 };
