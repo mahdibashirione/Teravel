@@ -10,7 +10,7 @@ const HotelList = () => {
 
   return (
     <article className="w-full">
-      <div className="px-4 pb-4 flex flex-col items-center">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-2 gap-y-4">
         {hotels.map((hotel) => (
           <HotelCard key={hotel.location_id} hotel={hotel} />
         ))}

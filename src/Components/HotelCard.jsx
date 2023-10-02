@@ -5,10 +5,10 @@ const HotelCard = ({ hotel }) => {
   return (
     <Link
       to={`${hotel.location_id}/?id=${hotel.location_id}&lat=${hotel.latitude}&lng=${hotel.longitude}`}
-      className="flex flex-col bg-white rounded-3xl p-4 shadow-main mt-4 border w-fit gap-y-4"
+      className="flex flex-col bg-white rounded-3xl p-4 hover:shadow-main border gap-y-4 col-span-1 items-stretch justify-between max-w-[272px] md:max-w-none mx-auto"
     >
       {/* Cover */}
-      <div className="w-[240px] h-[160px] rounded-xl overflow-hidden">
+      <div className="w-full h-[160px] rounded-xl overflow-hidden">
         <img
           className="w-full h-full object-cover"
           src={hotel.photo.images.original.url}
@@ -16,7 +16,7 @@ const HotelCard = ({ hotel }) => {
           alt=""
         />
       </div>
-      <div className="flex justify-between items-center max-w-[240px]">
+      <div className="flex justify-between items-start flex-1">
         {/* Name & Location */}
         <div>
           <span className="font-bold">{hotel.name}</span>
@@ -46,7 +46,9 @@ const HotelCard = ({ hotel }) => {
       <div className="flex justify-between items-center">
         {/* Price */}
         <span className="font-bold text-xl">{hotel.price.split(" ")[0]}</span>
-        <p>Nights</p>
+        <p className="text-sm">
+          <span className="text-lg font-bold">1</span>/Nights
+        </p>
       </div>
     </Link>
   );
